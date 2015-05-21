@@ -1,0 +1,29 @@
+{
+  "name": "co-nodemailer",
+  "version": "0.0.0",
+  "description": "co yield your nodemailer!",
+  "dependencies": {
+    "coffee-script": ">=1.9",
+    "nodemailer": ">=1"
+  },
+  "keywords": [
+    "co",
+    "nodemailer",
+    "koa",
+    "koala",
+    "ses",
+    "amazon",
+    "aws",
+    "smtp",
+    "sendmail",
+    "email",
+    "mail",
+    "e-mail"
+  ],
+  "author": "Brian <javascriptismagic@gmail.com>",
+  "license": "Unlicence",
+  "bugs": {
+    "url": "https://github.com/javascriptismagic/co-nodemailer/issues"
+  },
+  "homepage": "https://github.com/javascriptismagic/co-nodemailer"
+}
