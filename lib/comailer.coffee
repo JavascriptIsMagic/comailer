@@ -9,10 +9,11 @@ class Comailer extends Nodemailer
   constructor: (transport) ->
     unless @ instanceof Comailer
       return new Comailer transport
-    @__proto__ = @nodemailer = nodemailer = createTransport transport
-    for own name, method of Nodemailer::
-      do (name) =>
-        @[name] = (args...) -> (callback) ->
-            nodemailer[name] args..., callback
+    @__proto__ = @transport = transport = createTransport transport
+    for name, method of transport when name isnt 'transport'
+      if typeof method is 'function'
+        do (name) =>
+          @[name] = (args...) -> (callback) ->
+              transport[name] args..., callback
 
 module.exports = new Comailer()
