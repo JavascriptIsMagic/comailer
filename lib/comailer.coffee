@@ -2,7 +2,7 @@
 createTransport = (require 'nodemailer').createTransport
 Nodemailer = createTransport(yes).constructor
 
-class Comailer extends Nodemailer
+module.exports = class Comailer extends Nodemailer
   @Nodemailer = Nodemailer
   @createTransport = (transport) ->
     new Comailer transport
@@ -15,5 +15,3 @@ class Comailer extends Nodemailer
         do (name) =>
           @[name] = (args...) -> (callback) ->
               transport[name] args..., callback
-
-module.exports = new Comailer()
