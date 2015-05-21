@@ -1,3 +1,3 @@
 'use strict';
 require('coffee-script/register');
-module.exports = require('./lib/co-nodemailer');
+module.exports = require('./lib/comailer');

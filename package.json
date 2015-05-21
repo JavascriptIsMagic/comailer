@@ -1,5 +1,5 @@
 {
-  "name": "co-nodemailer",
+  "name": "comailer",
   "version": "0.0.0",
   "description": "co yield your nodemailer!",
   "dependencies": {
@@ -8,7 +8,9 @@
   },
   "keywords": [
     "co",
+    "mailer",
     "nodemailer",
+    "yield",
     "koa",
     "koala",
     "ses",
@@ -23,7 +25,7 @@
   "author": "Brian <javascriptismagic@gmail.com>",
   "license": "Unlicence",
   "bugs": {
-    "url": "https://github.com/javascriptismagic/co-nodemailer/issues"
+    "url": "https://github.com/javascriptismagic/comailer/issues"
   },
-  "homepage": "https://github.com/javascriptismagic/co-nodemailer"
+  "homepage": "https://github.com/javascriptismagic/comailer"
 }
