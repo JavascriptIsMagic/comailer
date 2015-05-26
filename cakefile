@@ -1,0 +1,21 @@
+'use strict'
+require 'cake-gulp'
+
+option '-w', '--watch', 'Watch files for changes.'
+
+coffeeFiles = ["#{__dirname}/lib/**/*.coffee"]
+task 'build:coffee', 'Builds CoffeScript files from ./lib to ./build', (options, callback) ->
+  src coffeeFiles
+    .pipe sourcemaps.init()
+      .pipe (
+        coffee bare: no
+          .on 'error', log)
+    .pipe(sourcemaps.write())
+    .pipe dest "#{__dirname}/build"
+    .pipe debug title: 'coffee:'
+  callback()
+
+task 'build', 'Builds all the files for this project, -w to watch for file changes.', ['build:coffee'], (options) ->
+  if options.watch
+    log "[#{green 'Watching'}] /lib/**/*.coffee files"
+    watch coffeeFiles, ['build:coffee']

@@ -1,7 +1,10 @@
-# Ugly hack, why did you blackbox your class for no reason?!
+'use strict'
+
+# Doing some wizardry to get the Nodemailer class constructor
 createTransport = (require 'nodemailer').createTransport
 Nodemailer = createTransport(yes).constructor
 
+# Comailer class accepts a Nodemailer Transport, and wraps all functions to return thunks instead.
 module.exports = class Comailer extends Nodemailer
   @Nodemailer = Nodemailer
   @createTransport = (transport) ->
@@ -9,7 +12,7 @@ module.exports = class Comailer extends Nodemailer
   constructor: (transport) ->
     unless @ instanceof Comailer
       return new Comailer transport
-    @__proto__ = @transport = transport = createTransport transport
+    transport = @transport = @__proto__ = createTransport transport
     for name, method of transport when name isnt 'transport'
       if typeof method is 'function'
         do (name) =>

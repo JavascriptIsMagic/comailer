@@ -1,10 +1,13 @@
 {
   "name": "comailer",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "co yield your nodemailer!",
   "dependencies": {
-    "coffee-script": ">=1.9",
     "nodemailer": ">=1"
+  },
+  "devDependencies": {
+    "coffee-script": ">=1.9",
+    "cake-gulp": "0"
   },
   "keywords": [
     "co",
@@ -23,7 +26,7 @@
     "e-mail"
   ],
   "author": "Brian <javascriptismagic@gmail.com>",
-  "license": "Unlicence",
+  "license": "Unlicense",
   "bugs": {
     "url": "https://github.com/javascriptismagic/comailer/issues"
   },
