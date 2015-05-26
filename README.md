@@ -1,9 +1,11 @@
 # Comailer
 
 A simple [CO](https://www.npmjs.com/package/co) wrapper around [![Nodemailer](https://raw.githubusercontent.com/andris9/Nodemailer/master/assets/nm_logo_200x136.png)](https://www.npmjs.com/package/nodemailer)
-co `yield` your emails!
 
+`yield` Nodemailer from co or koa!
 
+CoffeeScript (is optional, see javascript below)
+---
 ```coffeescript
     'use strict'
     co = require 'co'
@@ -30,18 +32,21 @@ co `yield` your emails!
         console.error error.stack
 
     # if you need to still need to call without yielding:
-    (transporter.sendMail
+    thunkOfSendMail = transporter.sendMail
       from: 'sender@address'
       to: 'receiver@address'
       subject: 'hello'
-      text: 'hello world!')((error, result) ->
-        if error
-          console.error error.stack
-        else
-          console.log result)
+      text: 'hello world!'
+    #...
+    thunkOfSendMail (error, result) ->
+      if error
+        console.error error.stack
+      else
+        console.log result
 ```
 
-Javascript:
+Javascript
+---
 ```js
     'use strict'
     var co = require('co');
@@ -72,13 +77,15 @@ Javascript:
       }
     });
 
-    // if you need to still need to call without yielding:
-    transporter.sendMail({
+    // if you need to still need to call without yielding using the returned thunk directly:
+    thunkOfSendMail = transporter.sendMail({
       from: 'sender@address',
       to: 'receiver@address',
       subject: 'hello',
       text: 'hello world!'
-    })(function (error, result) {
+    });
+    //...
+    thunkOfSendMail(function (error, result) {
       if (error) {
         console.error(error.stack);
       } else {
