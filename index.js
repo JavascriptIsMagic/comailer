@@ -1,7 +1,7 @@
 'use strict';
-//require('coffee-script/register');
 try {
-  module.exports = require('./lib/comailer.coffee');
+  //require('coffee-script/register');
+  module.exports = require('./lib/comailer');
 } catch (error) {
-  module.exports = require('./build/comailer.js');
+  module.exports = require('./build/comailer');
 }
