@@ -1,6 +1,6 @@
 {
   "name": "comailer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "co yield your nodemailer!",
   "dependencies": {
     "nodemailer": ">=1"
